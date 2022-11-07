@@ -1,4 +1,5 @@
 :root {
+    --VeryDarkBlue: hsl(235, 21%, 11%);
     --VeryLightGray: hsl(0, 0%, 98%);
     --VeryLightGrayishBlue: hsl(236, 33%, 92%);
     --LightGrayishBlue: hsl(233, 11%, 84%);
@@ -8,16 +9,6 @@
 
 }
 
-:root:not(.light) {
-    /* dark theam */
-    --VeryDarkBlue: hsl(235, 21%, 11%);
-    --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
-    --LightGrayishBlue: hsl(234, 39%, 85%);
-    --LightGrayishBluehover: hsl(236, 33%, 92%);
-    --DarkGrayishBlue: hsl(234, 11%, 52%);
-    --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
-    --VeryDarkGrayishBlue: hsl(237, 14%, 26%);
-}
 
 * {
     box-sizing: border-box;
@@ -30,7 +21,9 @@ body {
     Font-size: 18px;
 
 }
-
+.check{
+    background-image: url("../images/icon-check.svg");
+}
 main {
     width: 100vw;
     height: 100vh;
@@ -40,13 +33,14 @@ main {
 }
 
 .main-section {
-    background-image: url("images/bg-desktop-light.jpg");
+    background-image: url("../images/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
     width: 100%;
     height: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 100px;
 
 
 
@@ -62,11 +56,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 header>h1 {
-    letter-spacing: 10px;
+    letter-spacing: 20px;
     color: var(--VeryLightGray);
+    font-size: 40px;
 }
 
 .inputs {
@@ -82,12 +78,17 @@ header>h1 {
 
 }
 
+.all {
+    color: blue;
+}
+
+
 .inputs .text {
     width: 100%;
     padding: 10px;
     font-size: 15px;
     background-color: var(--VeryLightGray);
-    color: var(--DarkGrayishBlue);
+    color: var(--VeryDarkBlue);
     margin-left: 5px;
 }
 
@@ -110,8 +111,9 @@ ul li {
     margin-bottom: 1px;
     background-color: var(--VeryLightGray);
     padding: 15px;
-    color: var(--DarkGrayishBlue);
+    color: var(--VeryDarkBlue);
 }
+
 
 
 .done {
@@ -143,13 +145,14 @@ ul li {
     display: flex;
     justify-content: space-between;
     font-size: 13px;
+    color: var(--DarkGrayishBlue);
 }
 
 .menu a {
     padding-left: 10px;
 }
 
-.activeTodo {}
+
 
 .attribution {
     font-size: 11px;
@@ -158,4 +161,8 @@ ul li {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+.actions a:hover:not(.all) {
+    color: black;
 }

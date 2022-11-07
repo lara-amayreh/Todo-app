@@ -11,14 +11,33 @@ let content = "";
 let newli = "";
 let cont = "";
 let counter = 0;
+//gets the button by ID from your HTML element
+const themeBtn = document.getElementById("theme-btn");
+console.log(themeBtn);
+//when you click that button
+themeBtn.addEventListener("click", function () {
+  console.log(themeBtn.src);
+  if (themeBtn.src.includes("images/icon-moon.svg"))
+    themeBtn.src = "images/icon-sun.svg";
+  else themeBtn.src = "images/icon-moon.svg";
+  toogletheme();
+});
+
+function toogletheme() {
+  var theme = document.getElementsByTagName("link")[0];
+  console.log(theme);
+  if (theme.getAttribute("href") == "css/light.css") {
+    theme.setAttribute("href", "css/dark.css");
+  } else {
+    theme.setAttribute("href", "css/light.css");
+  }
+}
 
 function clearCompleted() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
-
   items.forEach((item) => {
     if (item.classList.contains("done")) {
-      item.classList.add("delete");
-      item.style.display = "none";
+      item.remove();
     }
   });
 }
@@ -26,7 +45,7 @@ function ALL() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
 
   items.forEach((item) => {
-    if (!item.classList.contains("delete")) item.style.display = "block";
+    item.style.display = "block";
   });
 }
 
@@ -34,8 +53,7 @@ function completed() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
 
   items.forEach((item) => {
-    if (!item.classList.contains("done") || item.classList.contains("delete"))
-      item.style.display = "none";
+    if (!item.classList.contains("done")) item.style.display = "none";
     else item.style.display = "block";
   });
 }
@@ -44,7 +62,7 @@ function DisplayActive() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
 
   items.forEach((item) => {
-    if (item.classList.contains("done") || item.classList.contains("delete")) {
+    if (item.classList.contains("done")) {
       item.style.display = "none";
     } else item.style.display = "block";
   });
@@ -60,7 +78,7 @@ function checkdone() {
   desplayCount();
 }
 function deleteTodo() {
-  this.parentElement.classList.add("delete");
+  this.parentElement.remove();
   if (!this.parentElement.classList.contains("done")) counter--;
   desplayCount();
 }

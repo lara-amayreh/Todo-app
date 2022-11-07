@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Todo app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+
 </head>
+
 <body>
+  <main>
+    <section class="main-section">
+      <div class="wrapper">
+        <header>
+          <h1>TODO</h1>
+          <img src="images/icon-moon.svg" />
+        </header>
+        <div class="inputs">
+          <input class="chekbox1" type="checkbox" name="add" value="add">
+          <input class="text" type="text" name="text" id="text" placeholder="creat a new todo">
+        </div>
+        <ul class="todo">
+          <li class="actions">
+            <div class="counter"></div>
+            <div class="menu">
+              <a class="all">All</a>
+              <a class="Active">Active</a>
+              <a class="Compleated">Compleated</a>
+            </div>
+            <a class="clearC">clear compleated</a>
 
-  Todo
+          </li>
 
-  <!-- Add dynamic number --> items left
+        </ul>
+      </div>
+    </section>
 
-  All
-  Active 
-  Completed
 
-  Clear Completed
 
-  Drag and drop to reorder list
+
+  </main>
+
+
+
 
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">lara amayreh</a>
+    <script src="script.js"></script>
   </div>
 </body>
+
 </html>

@@ -34,16 +34,17 @@ main {
 }
 
 .main-section {
+    position: relative;
     background-image: url("../images/bg-mobile-light.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 30%;
+    height: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+    /* padding-top: 30px; */
 
 
 
@@ -51,7 +52,10 @@ main {
 
 .wrapper {
     width: 90%;
-
+    position: absolute;
+    height: 35%;
+    top: 50%;
+    transform: translateY(-50%);
 
 }
 
@@ -59,7 +63,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 
 header>h1 {
@@ -208,6 +212,12 @@ ul li {
     background-color: rgba(113, 39, 233, 0.808);
 }
 
+@media (min-width: 375px) {
+    .main-section {
+        height: 30%;
+    }
+}
+
 @media (min-width: 1200px) {
     .men-mob {
         display: none;
@@ -226,11 +236,18 @@ ul li {
     .main-section {
         background-image: url("../images/bg-desktop-light.jpg");
 
-        padding-top: 50px;
-
+        height: 30%;
 
 
     }
 }
 
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {
+    .main-section {
+        background-image: url("../images/bg-desktop-light.jpg");
+
+        height: 26%;
+
+
+    }
+}

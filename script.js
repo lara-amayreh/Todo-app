@@ -1,6 +1,6 @@
 let ul = document.querySelector(".todo");
 let newtodo = document.querySelector(".text");
-let insert = document.querySelector (".addtodo");
+let insert = document.querySelector(".addtodo");
 let countdisplay = document.querySelector(".counter");
 let all = document.querySelector(".all");
 let Active = document.querySelector(".Active");
@@ -91,14 +91,13 @@ function creatCross() {
   image.classList.add("deleteBtn");
   image.addEventListener("click", deleteTodo);
 }
-function creatCheck(){
+function creatCheck() {
   div.classList.toggle("togglediv");
   var todos = div.parentElement;
   todos.classList.toggle("done");
   if (todos.classList.contains("done")) counter--;
   else counter++;
   desplayCount();
-
 }
 function creatTodo(todocontent) {
   counter++;
@@ -108,7 +107,7 @@ function creatTodo(todocontent) {
   creatCross();
   div = document.createElement("div");
   div.classList.add("checkdev");
-  div.addEventListener("click",creatCheck);
+  div.addEventListener("click", creatCheck);
 
   // rad = document.createElement("input");
   // rad.type = "checkbox";
@@ -117,7 +116,7 @@ function creatTodo(todocontent) {
   newli.append(cont);
   // newli.prepend(rad);
   newli.prepend(div);
-    newli.append(image);
+  newli.append(image);
 
   ul.prepend(newli);
   // rad.addEventListener("click", checkdone);
@@ -126,14 +125,13 @@ function creatTodo(todocontent) {
 
 function reset() {
   newtodo.value = "";
-insert.classList.remove("togglediv");
-
+  insert.classList.remove("togglediv");
 }
 insert.addEventListener("click", function (event) {
   content = newtodo.value;
   if (content !== "") {
     creatTodo(content);
-      insert.classList.add("togglediv");
+    insert.classList.add("togglediv");
 
     setTimeout(reset, 500);
   }

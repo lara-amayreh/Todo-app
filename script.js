@@ -92,8 +92,8 @@ function creatCross() {
   image.addEventListener("click", deleteTodo);
 }
 function creatCheck() {
-  div.classList.toggle("togglediv");
-  var todos = div.parentElement;
+  var todos = this.parentElement;
+  this.classList.toggle("togglediv");
   todos.classList.toggle("done");
   if (todos.classList.contains("done")) counter--;
   else counter++;
@@ -133,6 +133,17 @@ insert.addEventListener("click", function (event) {
     creatTodo(content);
     insert.classList.add("togglediv");
 
+    setTimeout(reset, 500);
+  }
+});
+
+newtodo.addEventListener("keypress", function (event) {
+  content = newtodo.value;
+  if (event.key === "Enter" && content !== "") {
+    event.preventDefault();
+    creatTodo(content);
+    insert.classList.add("togglediv");
+    console.log("add");
     setTimeout(reset, 500);
   }
 });

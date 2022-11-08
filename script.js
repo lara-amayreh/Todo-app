@@ -1,11 +1,14 @@
 let ul = document.querySelector(".todo");
 let newtodo = document.querySelector(".text");
-let insert = document.querySelector(".chekbox1");
+let insert = document.querySelector (".addtodo");
 let countdisplay = document.querySelector(".counter");
 let all = document.querySelector(".all");
 let Active = document.querySelector(".Active");
 let Compleated = document.querySelector(".Compleated");
 let clearC = document.querySelector(".clearC");
+let allM = document.querySelector(".allM");
+let ActiveM = document.querySelector(".ActiveM");
+let CompleatedM = document.querySelector(".CompleatedM");
 
 let content = "";
 let newli = "";
@@ -45,16 +48,17 @@ function ALL() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
 
   items.forEach((item) => {
-    item.style.display = "block";
+    item.style.display = "flex";
   });
 }
 
 function completed() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
-
+  // const menu = document.querySelector(".action")
   items.forEach((item) => {
     if (!item.classList.contains("done")) item.style.display = "none";
-    else item.style.display = "block";
+    else item.style.display = "flex";
+    if (item.classList.contains("actions")) item.style.display = "flex";
   });
 }
 
@@ -64,7 +68,7 @@ function DisplayActive() {
   items.forEach((item) => {
     if (item.classList.contains("done")) {
       item.style.display = "none";
-    } else item.style.display = "block";
+    } else item.style.display = "flex";
   });
 }
 function desplayCount() {
@@ -87,32 +91,51 @@ function creatCross() {
   image.classList.add("deleteBtn");
   image.addEventListener("click", deleteTodo);
 }
+function creatCheck(){
+  div.classList.toggle("togglediv");
+  var todos = div.parentElement;
+  todos.classList.toggle("done");
+  if (todos.classList.contains("done")) counter--;
+  else counter++;
+  desplayCount();
+
+}
 function creatTodo(todocontent) {
   counter++;
   newli = document.createElement("li");
   cont = document.createTextNode(todocontent);
   image = document.createElement("img");
   creatCross();
-  rad = document.createElement("input");
-  rad.type = "checkbox";
+  div = document.createElement("div");
+  div.classList.add("checkdev");
+  div.addEventListener("click",creatCheck);
+
+  // rad = document.createElement("input");
+  // rad.type = "checkbox";
+  newli.classList.add("newlist");
 
   newli.append(cont);
-  newli.prepend(rad);
-  newli.append(image);
+  // newli.prepend(rad);
+  newli.prepend(div);
+    newli.append(image);
+
   ul.prepend(newli);
-  rad.addEventListener("click", checkdone);
+  // rad.addEventListener("click", checkdone);
   desplayCount();
 }
 
 function reset() {
   newtodo.value = "";
-  insert.checked = false;
+insert.classList.remove("togglediv");
+
 }
 insert.addEventListener("click", function (event) {
   content = newtodo.value;
   if (content !== "") {
     creatTodo(content);
-    setTimeout(reset, 300);
+      insert.classList.add("togglediv");
+
+    setTimeout(reset, 500);
   }
 });
 
@@ -120,3 +143,6 @@ clearC.addEventListener("click", clearCompleted);
 all.addEventListener("click", ALL);
 Compleated.addEventListener("click", completed);
 Active.addEventListener("click", DisplayActive);
+allM.addEventListener("click", ALL);
+CompleatedM.addEventListener("click", completed);
+ActiveM.addEventListener("click", DisplayActive);

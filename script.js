@@ -14,10 +14,9 @@ let content = "";
 let newli = "";
 let cont = "";
 let counter = 0;
-//gets the button by ID from your HTML element
 const themeBtn = document.getElementById("theme-btn");
 console.log(themeBtn);
-//when you click that button
+
 themeBtn.addEventListener("click", function () {
   console.log(themeBtn.src);
   if (themeBtn.src.includes("images/icon-moon.svg"))
@@ -54,7 +53,6 @@ function ALL() {
 
 function completed() {
   const items = document.querySelectorAll("ul li:not(:last-child)");
-  // const menu = document.querySelector(".action")
   items.forEach((item) => {
     if (!item.classList.contains("done")) item.style.display = "none";
     else item.style.display = "flex";
@@ -109,17 +107,11 @@ function creatTodo(todocontent) {
   div.classList.add("checkdev");
   div.addEventListener("click", creatCheck);
 
-  // rad = document.createElement("input");
-  // rad.type = "checkbox";
   newli.classList.add("newlist");
-
   newli.append(cont);
-  // newli.prepend(rad);
   newli.prepend(div);
   newli.append(image);
-
   ul.prepend(newli);
-  // rad.addEventListener("click", checkdone);
   desplayCount();
 }
 
